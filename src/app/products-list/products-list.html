@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        @for(product of productsList; track product.id){
+        <div class="col-lg-4 col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body position-relative">
+                    <span [ngClass]="product.availabilityStatus === 'In Stock'? 'green':'pink'"
+                        class="badge  px-3 py-2 rounded-pill position-absolute top-0 start-0 m-2">
+                        {{product.availabilityStatus}}
+                    </span>
+                    <div class="product__img pt-4">
+                        <a [routerLink]='["products",product.id]'><img [src]="product.images[0]" class="card-img-top">
+                        </a>
+                    </div>
+                    <a [routerLink]='["products",product.id]' class="nav-link">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                    </a>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text"><strong>{{ product.price }}$</strong></p>
+                    <button (click)="FavListStore.addToFavList(product)"
+                        class="btn btn-light position-absolute top-0 end-0"><i class="fa-solid fa-heart"
+                            style="color: #d41111;"></i></button>
+                </div>
+                <button (click)="FavListStore.addToBasketList(product)" class="btn btn-success col-md-6 m-2 d-flex gap-2 align-items-center">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Add</span>
+                </button>
+            </div>
+        </div>
+        }@empty{
+        <p>There is no products</p>
+        }
+    </div>
+</div>

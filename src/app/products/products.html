@@ -1,0 +1,28 @@
+<div class="container">
+    @if(productDetails()){
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <span [ngClass]="productDetails().availabilityStatus === 'In Stock'? 'green':'pink'"
+                class="badge  px-3 py-2 rounded-pill position-absolute top-0 start-0 m-2">
+                {{productDetails().availabilityStatus}}
+            </span>
+            <div class="product__img pt-4">
+                <img [src]="productDetails().images[0]" class="card-img-top">
+            </div>
+                <h5 class="card-title">{{ productDetails().title }}</h5>
+                <p class="card-text"><strong>Discount: </strong>{{productDetails().discountPercentage}}% </p>
+            <p class="card-text"><strong>Description: </strong> {{ productDetails().description }}</p>
+            <p class="card-text"> <strong>Brand: </strong>{{productDetails().brand}} </p>
+            <p class="card-text"> <strong>Category: </strong>{{productDetails().category}} </p>
+            <p class="card-text"><strong>Rating: </strong> {{productDetails().rating}} </p>
+            <p class="card-text"><strong>{{ productDetails().price }}$</strong></p>
+        </div>
+        <a href="#" class="btn btn-success col-md-6 m-2 d-flex gap-2 align-items-center">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Add</span>
+        </a>
+    </div>
+    }
+
+
+</div>

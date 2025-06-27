@@ -1,0 +1,51 @@
+<div class="container my-2">
+    <div class="row">
+        @for(product of shopList.basketList(); track product.id){
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col-md-3">Description</th>
+                    <th scope="col-md-3">Quantity</th>
+                    <th scope="col-md-3">Remove</th>
+                    <th scope="col-md-3">Price</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td class="pt-2">
+                        <div class="col-md-3">
+                            <div class="d-flex align-items-center">
+                                <a [routerLink]='["/products",product.id]'><img [src]="product.images[0]" class="w-75">
+                                </a>
+                                <a [routerLink]='["/products",product.id]' class="nav-link">
+                                    <h6>{{ product.title }}</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+                            <button (click)="shopList.increaseQuantity(product.id)" class="btn btn-success btn-sm">+</button>
+                            <span>{{product.quantity || 1}}</span>
+                            <button (click)="shopList.decreaseQuantity(product.id)" class="btn btn-light btn-sm">-</button>
+                        </div>
+                    </td>
+                    <td>
+                        <button (click)="shopList.removeFromBasket(product.id)" class="btn btn-outline-secondary btn-sm">×</button>
+                    </td>
+                    <td>
+                        <strong>{{ product.price }}$</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    }@empty{
+        <p>No products found</p>
+    }
+    <h6 scope="col-md-3">Total Price</h6>
+    <p>
+        <strong>{{shopList.totalPrice()}} </strong>
+    </p>
+    </div>
+</div>
