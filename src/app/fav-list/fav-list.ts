@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-fav-list',
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './fav-list.html',
   styleUrl: './fav-list.scss'
 })

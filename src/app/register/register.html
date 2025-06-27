@@ -1,0 +1,58 @@
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)"
+        class="p-4 border rounded bg-light d-flex flex-column mt-3">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+        @if(myForm.get('name')?.touched && myForm.get('name')?.errors?.['required']){
+        <small>This Field Is Required</small>
+        }
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" formControlName="email">
+        <div>
+            @if(myForm.get('email')?.touched && myForm.get('email')?.errors?.['required']){
+            <small>Email Is Required</small>
+            }
+            @if(myForm.get('email')?.touched && myForm.get('email')?.errors?.['pattern']){
+            <small>Invalid Email</small>
+            }
+        </div>
+
+        <label for="uname">User Name</label>
+        <input type="text" id="uname" formControlName="uname">
+        <div>
+            @if(myForm.get('uname')?.touched && myForm.get('uname')?.errors?.['required']){
+            <small>User Name Is Required</small>
+            }
+            @if(myForm.get('uname')?.touched && myForm.get('uname')?.errors?.['pattern']){
+            <small>Please delete any space</small>
+            }
+        </div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+        <div>
+            @if(myForm.get('password')?.touched && myForm.get('password')?.errors?.['required']){
+            <small>Password Is Required</small>
+            }
+            @if(myForm.get('password')?.touched && myForm.get('password')?.errors?.['pattern']){
+            <small>Invalid Password</small>
+            }
+        </div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+        <div>
+            @if(myForm.get('confirmPassword')?.touched && myForm.get('confirmPassword')?.errors?.['required']){
+            <small>This Field Is Required</small>
+            }
+            @if(myForm.get('confirmPassword')?.touched &&
+            myForm.hasError('passwordsMismatch') &&
+            !myForm.get('confirmPassword')?.errors?.['required']){
+            <small>Passwords don't match</small>
+            }
+        </div>
+
+        <button [disabled]="myForm.invalid" class="form-control btn btn-primary mt-2">Register</button>
+    </form>
+</div>

@@ -20,7 +20,7 @@
           <button (click)="favoriteList.removeFromFavList(product.id)" class="btn btn-light position-absolute top-0 end-0"><i
               class="fa-solid fa-heart" style="color: #d41111;"></i></button>
         </div>
-        <button class="btn btn-success col-md-6 m-2 d-flex gap-2 align-items-center">
+        <button (click)="favoriteList.addToBasketList(product)" class="btn btn-success col-md-6 m-2 d-flex gap-2 align-items-center">
           <i class="fas fa-shopping-cart"></i>
           <span>Add</span>
         </button>

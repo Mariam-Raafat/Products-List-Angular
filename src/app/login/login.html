@@ -1,0 +1,24 @@
+<div class="container">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="p-4 border rounded bg-light d-flex flex-column mt-3">
+        <label for="email">Email Address</label>
+        <input ngModel type="email" id="email" name="email" required #email="ngModel"
+            pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
+        <div>
+            @if (email.touched && email.errors?.['pattern']){
+            <small>Email is invalid</small>
+            }
+            @if(email.touched && email.errors?.['required']){
+            <small>Email is required</small>
+            }
+        </div>
+
+        <label for="password">Password</label>
+        <input ngModel type="password" name="password" id="password" required #password="ngModel">
+        <div>
+            @if(password.touched && password.invalid){
+            <small>Password is required</small>
+            }
+        </div>
+        <button [disabled]="myForm.invalid" class="form-control btn btn-primary mt-2">Login</button>
+    </form>
+</div>

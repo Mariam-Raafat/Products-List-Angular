@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.scss'
 })
 export class Navbar {
- counter = inject(FavListStore)
+  counter = inject(FavListStore)
 }
