@@ -9,8 +9,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './login.scss'
 })
 export class Login {
-
-
+  
   onSubmit(form: NgForm) {
     console.log(form.value);
   }

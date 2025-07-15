@@ -31,6 +31,15 @@ export class Register implements OnInit {
 
   onSubmit(form: FormGroup) {
     console.log(form.value);
+    localStorage.setItem('formData',JSON.stringify(this.myForm.value))
+    // get the data from localStorage
+    const saved = localStorage.getItem('formData')
+    if (saved) {
+      this.myForm.patchValue(JSON.parse(saved))
+  
+    }
+  
+    
   }
 }
 

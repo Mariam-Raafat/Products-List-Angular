@@ -2,6 +2,7 @@ import { Component, effect, inject, OnInit, signal} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { productService } from '../productService';
 import { CommonModule } from '@angular/common';
+import { FavListStore } from '../signal.store/singnal.store';
 
 @Component({
   selector: 'app-products',
@@ -13,7 +14,7 @@ export class Products  {
 // readonly id = input<string>();
 router = inject(ActivatedRoute);
 productService = inject(productService);
-
+add = inject(FavListStore)
 readonly productId = signal('1');
 readonly productDetails = signal<any>(null);
 

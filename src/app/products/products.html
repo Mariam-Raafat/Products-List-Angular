@@ -17,10 +17,10 @@
             <p class="card-text"><strong>Rating: </strong> {{productDetails().rating}} </p>
             <p class="card-text"><strong>{{ productDetails().price }}$</strong></p>
         </div>
-        <a href="#" class="btn btn-success col-md-6 m-2 d-flex gap-2 align-items-center">
+        <button (click)="add.addToBasketList(productDetails())"  class="btn btn-success col-md-6 m-2 d-flex gap-2 align-items-center">
             <i class="fas fa-shopping-cart"></i>
             <span>Add</span>
-        </a>
+        </button>
     </div>
     }
 

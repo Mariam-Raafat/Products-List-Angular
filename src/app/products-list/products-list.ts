@@ -12,7 +12,6 @@ import { FavListStore } from '../signal.store/singnal.store';
 })
 export class ProductsList implements OnInit {
   productsList!: any[];
-  // constructor(private products:productService){}
   products = inject(productService);
   FavListStore = inject(FavListStore);
 
